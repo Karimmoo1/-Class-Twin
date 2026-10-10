@@ -1,0 +1,4 @@
+voice/
+*.wav
+*.mp3
+.env

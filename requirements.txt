@@ -1,0 +1,26 @@
+# Class Twin - everything in one file.
+# Phase 1 (brain) + Phase 2 live loop run on your laptop. The XTTS voice server runs on Colab (see xtts_server_colab.py).
+
+# --- brain (Phase 1) ---
+groq
+langchain-core
+langchain-groq
+sentence-transformers
+faiss-cpu
+pydantic>=2
+gradio              # Phase 1 demo app
+
+# --- live meeting loop (Phase 2) ---
+silero-vad          # speech detection (needs torch: pip install torch - the CPU build is enough)
+sounddevice         # playback + microphone / BlackHole capture
+soundcard>=0.4.4    # Windows loopback capture of the meeting audio
+soundfile
+numpy
+scipy
+readchar            # keyboard: kill switch, Enter / Esc
+gradio_client       # calls the XTTS server running on Colab
+
+# --- Phase 1 voice fallback only ---
+edge-tts
+
+# --- COLAB ONLY (voice server): pip install coqui-tts gradio soundfile   (Python 3.10-3.13)
